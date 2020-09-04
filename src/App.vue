@@ -3,6 +3,7 @@
     <div class="h-16">
       <transition :css="false" @leave="leave" @enter="enter">
         <div v-if="showSquare" class="square w-16 h-16 bg-red-600" />
+        <div v-else class="circle w-16 h-16 bg-blue-600 rounded-full" />
       </transition>
     </div>
     <div class="my-4 space-x-4">
