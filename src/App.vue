@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="p-8">
     <div class="h-16">
-      <transition :css="false" @leave="leave" @enter="enter">
-        <div v-if="showSquare" class="square w-16 h-16 bg-red-600" />
-        <div v-else class="circle w-16 h-16 bg-blue-600 rounded-full" />
+      <transition :css="false" mode="out-in" @leave="leave" @enter="enter">
+        <div v-if="showSquare" key="square" class="square w-16 h-16 bg-red-600" />
+        <div v-else key="circle" class="circle w-16 h-16 bg-blue-600 rounded-full" />
       </transition>
     </div>
     <div class="my-4 space-x-4">
