@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="p-8">
     <div class="h-16">
-      <div v-if="showSquare" class="square w-16 h-16 bg-red-600" />
+      <transition :css="false" @leave="leave" @enter="enter">
+        <div v-if="showSquare" class="square w-16 h-16 bg-red-600" />
+      </transition>
     </div>
     <div class="my-4 space-x-4">
       <button
@@ -25,8 +27,11 @@ export default {
     };
   },
   methods: {
-    animate() {
-      this.tl.restart();
+    leave(element, done) {
+      gsap.to(element, { duration: 0.4, autoAlpha: 0, scale: 0, ease: 'back.in', onComplete: done });
+    },
+    enter(element, done) {
+      gsap.from(element, { duration: 0.4, yPercent: 100, autoAlpha: 0, ease: 'back.out', onComplete: done });
     }
   }
 }
