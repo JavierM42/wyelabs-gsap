@@ -1,7 +1,20 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="p-8">
+    <div id="square" class="w-16 h-16 bg-red-600" />
+    <div class="my-4 space-x-4">
+      <button
+        @click="animate"
+        class="px-4 py-1 border border-red-500 bg-red-200 rounded-full hover:shadow-lg font-medium text-red-900"
+      >
+        Animate me
+      </button>
+      <button
+        @click="animateBack"
+        class="px-4 py-1 border border-blue-500 bg-blue-200 rounded-full hover:shadow-lg font-medium text-blue-900"
+      >
+        Take me back
+      </button>
+    </div>
   </div>
 </template>
 
@@ -10,19 +23,13 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+    animate() {
+      gsap.to('#square', { duration: 1, x: 300 });
+    },
+    animateBack() {
+      gsap.to('#square', { duration: 1, x: 0 });
+    }
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
