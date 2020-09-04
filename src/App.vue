@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { gsap } from 'gsap';
 
 export default {
   name: 'App',
   methods: {
     animate() {
-      gsap.to('#square', { duration: 1, x: 300 });
+      gsap.to('#square', { duration: 1, opacity: 0.5, x: 300, rotation: 360, scale: 2 });
     },
     animateBack() {
-      gsap.to('#square', { duration: 1, x: 0 });
+      gsap.to('#square', { duration: 1, opacity: 1, x: 0, rotation: 0, scale: 1 });
     }
   }
 }
