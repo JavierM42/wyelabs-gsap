@@ -25,11 +25,12 @@ export default {
   name: 'App',
   methods: {
     animate() {
-      gsap.to('#square', { duration: 1, opacity: 0.5, x: 300, rotation: 360, scale: 2 });
+      gsap.to('#square', { duration: 1, opacity: 0.5, x: 300, rotation: 360, scale: 2, ease: 'back.inOut' });
     },
     animateBack() {
-      gsap.to('#square', { duration: 1, opacity: 1, x: 0, rotation: 0, scale: 1 });
+      gsap.to('#square', { duration: 1, opacity: 1, x: 0, rotation: 0, scale: 1, ease: 'bounce.out' });
     }
   }
 }
+// eases documentation https://greensock.com/docs/v3/Eases
 </script>
