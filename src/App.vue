@@ -1,6 +1,11 @@
 <template>
   <div id="app" class="p-8">
-    <div id="square" class="w-16 h-16 bg-red-600" />
+    <div class="flex space-x-2">
+      <div class="square w-16 h-16 bg-red-600" />
+      <div class="square w-16 h-16 bg-red-600" />
+      <div class="square w-16 h-16 bg-red-600" />
+      <div class="square w-16 h-16 bg-red-600" />
+    </div>
     <div class="my-4 space-x-4">
       <button
         @click="animate"
@@ -25,12 +30,11 @@ export default {
   name: 'App',
   methods: {
     animate() {
-      gsap.to('#square', { duration: 1, opacity: 0.5, x: 300, rotation: 360, scale: 2, ease: 'back.inOut' });
+      gsap.to('.square', { duration: 1, opacity: 0.5, x: 300, rotation: 360, scale: 2, ease: 'back.inOut' });
     },
     animateBack() {
-      gsap.to('#square', { duration: 1, opacity: 1, x: 0, rotation: 0, scale: 1, ease: 'bounce.out' });
+      gsap.to('.square', { duration: 1, opacity: 1, x: 0, rotation: 0, scale: 1, ease: 'bounce.out' });
     }
   }
 }
-// eases documentation https://greensock.com/docs/v3/Eases
 </script>
