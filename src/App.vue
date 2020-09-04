@@ -17,12 +17,21 @@ import { gsap } from 'gsap';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      tl: gsap.timeline()
+    };
+  },
+  mounted() {
+    this.tl.to('.square', { duration: .2, x: 300 });
+    this.tl.to('.square', { duration: .2, y: 300 });
+    this.tl.to('.square', { duration: .2, x: 0 });
+    this.tl.to('.square', { duration: .2, y: 0 });
+    this.tl.pause();
+  },
   methods: {
     animate() {
-      gsap.to('.square', { duration: .2, x: 300 });
-      gsap.to('.square', { duration: .2, x: 300, y: 300, delay: .2 });
-      gsap.to('.square', { duration: .2, x: 0, y: 300, delay: .4 });
-      gsap.to('.square', { duration: .2, x: 0, y: 0, delay: .6 });
+      this.tl.restart();
     }
   }
 }
